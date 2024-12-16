@@ -48,6 +48,15 @@ namespace Library2
             reader.Close();
             connection.Close();
         }
+
+        public static void Insert(string table, string fields, string values)
+        {
+            string cmd = $"INSERT {table} ({fields}) VALUES ({values});";
+            SqlCommand command = new SqlCommand(cmd, connection);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
         //public override string ToString()
         //{
         //    return base.ToString();
