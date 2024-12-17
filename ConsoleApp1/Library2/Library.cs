@@ -49,14 +49,36 @@ namespace Library2
             connection.Close();
         }
 
-        public static void Insert(string table, string fields, string values)
+        /*public static void Insert(string table, string fields, string values)
         {
             string cmd = $"INSERT {table} ({fields}) VALUES ({values});";
             SqlCommand command = new SqlCommand(cmd, connection);
             connection.Open();
             command.ExecuteNonQuery();
             connection.Close();
+        }*/
+        public static void Insert(string table, string fields, object[] values)
+        {
+            //создаем строку для запроса в кой кол полей=кол параметров
+            string parameters = string.Join(", ", values.Select((_, index) => $"@param{index}"));
+            string cmd = $"INSERT INTO {table} ({fields}) VALUES ({parameters});";
+            using (SqlCommand command = new SqlCommand(cmd, connection))
+            {
+                //добавляю кол-во параметров
+                for (int i = 0; i < values.Length; i++)
+                {
+                    command.Parameters.AddWithValue($"@param{i}", values[i]);
+                }
+                connection.Open(); // открыл соединение
+                command.ExecuteNonQuery();
+                connection.Close(); // закрыл соединение
+            }
         }
+
+
+
+
+
         //public override string ToString()
         //{
         //    return base.ToString();
