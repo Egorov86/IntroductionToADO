@@ -20,15 +20,25 @@ namespace Library2
                 "6,'Vikings',950,'2010-10-10',10"
                 );*/
 
+
+            /*
             string tableAuthors = "Authors";
             string fieldsAuthors = "author_id, first_name, last_name";
-            object[] valuesAuthors = {7, "Anders", "Hejlsberg"};
+            object[] valuesAuthors = {8, "Anders", "Hejlsberg"};
             Library.Insert(tableAuthors, fieldsAuthors, valuesAuthors);
+            */
+            //Library.InsertAuthor(5, "Stroustrup", "Bjarne");
+            //Console.WriteLine(Library.GetAuthorID("Bjarne Stroustrup"));
+
+            Library.InsertBook(7, "C++ Programming Languege", 331, "1986-01-29", "Bjarne Stroustrup");
 
             Library.Select("author_id,first_name,last_name", "Authors");
-            Library.Select("book_title,publish_date,[Author]=first_name+' '+last_name",
-                "Books,Authors",
-                "author=author_id", 32
+            Library.Select
+                (
+                    "book_title,publish_date,[Author]=first_name+' '+last_name",
+                    "Books,Authors",
+                    "author=author_id",
+                    32
                 );
         }
     }
