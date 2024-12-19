@@ -23,10 +23,41 @@ namespace Academy
             MessageBox.Show(this, connectionString, "Connection string", MessageBoxButtons.OK, MessageBoxIcon.Information);
             connection = new SqlConnection(connectionString);
 
-            LoadStudents();
+            LoadStudentsAndGroups();
+            //LoadStudent();
         }
-        void LoadStudents()
+        void LoadStudentsAndGroups()
         {
+            connection.Open();
+            LoadDataTable(dataGridStudents, "SELECT * FROM Students");
+            //LoadDataTable(dataGridGroups, "SELECT * FROM Groups");
+
+            connection.Close();
+        }
+        void LoadDataTable(DataGridView dataGridView, string sqlCommand)
+        {
+            SqlCommand command = new SqlCommand(sqlCommand, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                DataTable table = new DataTable();
+                for (int i = 0; i < reader.FieldCount; i++)
+                    table.Columns.Add(reader.GetName(i));
+                while (reader.Read())
+                {
+                    DataRow row = table.NewRow();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        row[i] = reader[i];
+                    }
+                    table.Rows.Add(row);
+                }
+                dataGridView.DataSource = table;
+            }
+        }
+
+        //void LoadStudent();
+        /*{
             string cmd = "SELECT * FROM Students";
             SqlCommand command = new SqlCommand(cmd, connection);
             connection.Open();
@@ -51,6 +82,6 @@ namespace Academy
             }
             reader.Close();
             connection.Close();
-        }
+        }*/
     }
 }
