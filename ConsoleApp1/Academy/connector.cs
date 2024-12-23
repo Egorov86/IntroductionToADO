@@ -61,6 +61,7 @@ namespace Academy
             if (reader.HasRows)
             {
                 dictionary = new Dictionary<string, int>();
+                dictionary["Все"] = 0;
                 while (reader.Read())
                 {
                     dictionary[reader[0].ToString()] = Convert.ToInt32(reader[1]);
