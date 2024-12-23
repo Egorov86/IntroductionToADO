@@ -125,9 +125,13 @@ namespace Academy
         {
             dataGridViewGroups.DataSource = Connector.LoadData
                (
-                    "group_id AS 'ID', group_name AS N'Название группы', direction_name AS N'Направление обучения'",
-                    "Groups,Directions",
-                    "direction = direction_id"
+                    "group_id AS 'ID'," +
+                    "group_name AS N'Название группы'," +
+                    "direction_name AS N'Направление обучения'," +
+                    "COUNT(student_id) AS N'Количество студентов'" + 
+                    "Students,Groups,Directions",
+                    "direction = direction_id AND [group]=group_id" +
+                    "GROUP BY group_id,group_name,direction_name"
                );
             tslGroupsCount.Text = $"Количество групп: {dataGridViewGroups.RowCount-1}";
         }
