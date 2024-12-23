@@ -43,6 +43,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tslTeachersCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.cbStudentsDirections = new System.Windows.Forms.ComboBox();
+            this.cbStudentsGroup = new System.Windows.Forms.ComboBox();
+            this.lblStudentsGroup = new System.Windows.Forms.Label();
+            this.lblStudentsDirection = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPageStudents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStudents)).BeginInit();
@@ -70,6 +74,10 @@
             // 
             // tabPageStudents
             // 
+            this.tabPageStudents.Controls.Add(this.lblStudentsDirection);
+            this.tabPageStudents.Controls.Add(this.lblStudentsGroup);
+            this.tabPageStudents.Controls.Add(this.cbStudentsGroup);
+            this.tabPageStudents.Controls.Add(this.cbStudentsDirections);
             this.tabPageStudents.Controls.Add(this.dataGridStudents);
             this.tabPageStudents.Controls.Add(this.statusStripStudents);
             this.tabPageStudents.Location = new System.Drawing.Point(4, 22);
@@ -87,9 +95,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridStudents.Location = new System.Drawing.Point(0, 36);
+            this.dataGridStudents.Location = new System.Drawing.Point(-62, 33);
             this.dataGridStudents.Name = "dataGridStudents";
-            this.dataGridStudents.Size = new System.Drawing.Size(943, 337);
+            this.dataGridStudents.Size = new System.Drawing.Size(943, 340);
             this.dataGridStudents.TabIndex = 1;
             // 
             // statusStripStudents
@@ -208,6 +216,42 @@
             this.tslTeachersCount.Size = new System.Drawing.Size(166, 17);
             this.tslTeachersCount.Text = "Количество Преподавателей";
             // 
+            // cbStudentsDirections
+            // 
+            this.cbStudentsDirections.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStudentsDirections.FormattingEnabled = true;
+            this.cbStudentsDirections.Location = new System.Drawing.Point(421, 6);
+            this.cbStudentsDirections.Name = "cbStudentsDirections";
+            this.cbStudentsDirections.Size = new System.Drawing.Size(209, 21);
+            this.cbStudentsDirections.TabIndex = 2;
+            // 
+            // cbStudentsGroup
+            // 
+            this.cbStudentsGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStudentsGroup.FormattingEnabled = true;
+            this.cbStudentsGroup.Location = new System.Drawing.Point(95, 6);
+            this.cbStudentsGroup.Name = "cbStudentsGroup";
+            this.cbStudentsGroup.Size = new System.Drawing.Size(132, 21);
+            this.cbStudentsGroup.TabIndex = 2;
+            // 
+            // lblStudentsGroup
+            // 
+            this.lblStudentsGroup.AutoSize = true;
+            this.lblStudentsGroup.Location = new System.Drawing.Point(44, 9);
+            this.lblStudentsGroup.Name = "lblStudentsGroup";
+            this.lblStudentsGroup.Size = new System.Drawing.Size(45, 13);
+            this.lblStudentsGroup.TabIndex = 3;
+            this.lblStudentsGroup.Text = "Группа:";
+            // 
+            // lblStudentsDirection
+            // 
+            this.lblStudentsDirection.AutoSize = true;
+            this.lblStudentsDirection.Location = new System.Drawing.Point(288, 9);
+            this.lblStudentsDirection.Name = "lblStudentsDirection";
+            this.lblStudentsDirection.Size = new System.Drawing.Size(127, 13);
+            this.lblStudentsDirection.TabIndex = 3;
+            this.lblStudentsDirection.Text = "Направление обучения:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,6 +298,10 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripStatusLabel tslTeachersCount;
+        private System.Windows.Forms.Label lblStudentsGroup;
+        private System.Windows.Forms.ComboBox cbStudentsGroup;
+        private System.Windows.Forms.ComboBox cbStudentsDirections;
+        private System.Windows.Forms.Label lblStudentsDirection;
     }
 }
 
