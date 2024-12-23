@@ -27,9 +27,10 @@ namespace Academy
             connection = new SqlConnection(connectionString);
 
             //LoadStudentsAndGroups();
-            LoadStudent();
+            LoadStudents();
             LoadGroups();
             LoadDerictions();
+            LoadTeachers();
         }
        /* void LoadStudentsAndGroups()
         {
@@ -61,7 +62,7 @@ namespace Academy
             }
         }*/
 
-        void LoadStudent()
+        void LoadStudents()
         {
 
             dataGridStudents.DataSource = Connector.LoadData
@@ -103,6 +104,22 @@ namespace Academy
             //reader.Close();
             //connection.Close(); 
             #endregion
+        }
+        void LoadTeachers()
+        {
+            //dataGridTeachers.DataSource = Connector.LoadData
+            dataGridView1.DataSource = Connector.LoadData
+               (
+                    "teacher_id AS 'ID'," +
+                    "last_name AS N'Фамилия'," +
+                    "first_name AS N'Имя', " +
+                    "ISNULL(middle_name, N'') AS N'Отчество', " +
+                    "DATEDIFF(DAY,birth_date,GETDATE())/365 AS N'Возраст', " +
+                    "DATEDIFF(YEAR,works_since,GETDATE())/365 AS N'Стаж', " +
+                    "rate AS N'Ставка' ",
+                    "Teachers"
+                );
+            tslTeachersCount.Text = $"Количество преподавателей: {dataGridView1.RowCount - 1}";
         }
         void LoadGroups()
         {
