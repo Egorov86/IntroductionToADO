@@ -86,7 +86,7 @@ namespace Academy
                      "[group]=group_id AND direction=direction_id"
                 );
             tslStudentsCount.Text = $"Количество студентов: {dataGridStudents.RowCount - 1}";
-            //dataGridStudents.Columns["Дата рождения"].ValueType = 
+            ///dataGridStudents.Columns["Дата рождения"].ValueType = 
             #region Loading
             //string cmd = "SELECT * FROM Students";
             //SqlCommand command = new SqlCommand(cmd, connection);
